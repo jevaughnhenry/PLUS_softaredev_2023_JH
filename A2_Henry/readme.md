@@ -3,7 +3,7 @@ The following libraries were installed in the environment:
 1. Spyder
 2. 7zip
 
-# Steps carried out:  
+# Steps carried out  
 1. Forked the original repository with the 2 sample environments  
 2. Installed the two environments from the provided yaml files   
 3. Modified software_dev_v1 environment 
