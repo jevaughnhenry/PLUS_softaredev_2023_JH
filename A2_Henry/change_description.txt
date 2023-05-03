@@ -1,1 +1,0 @@
-Installed 7zip and Spyder in the environment.
