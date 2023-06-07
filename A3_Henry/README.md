@@ -10,7 +10,7 @@ The main use case for the knowledge gained is application towards the final proj
 4. Creating a choropleth map
 
 ## Outcome
-The results of these tests can be found in the following notebook: [A3 Jupyter Notebook](A3_Henry/A3_Henry_geospatial.ipynb)  
+The results of these tests can be found in the following notebook: [A3 Jupyter Notebook](A3_Henry_geospatial.ipynb)
 
 ### Maps
 <img src="/A3_Henry/images/jamaica_map.png" alt="Eateries around Jamaica" title="Eateries around Jamaica" width="700" height="418">  
