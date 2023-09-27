@@ -33,11 +33,29 @@ def create_new_map():
     new_map = folium.Map(location=[latitude, longitude], zoom_start=zoom)
     return new_map
 
+def create_new_map2(latitude, longitude, zoom):
+    """
+    Creates a new map with user-defined coordinates and zoom level.
+
+    Args:
+        latitude (float): Latitude of the map center.
+        longitude (float): Longitude of the map center.
+        zoom (int): Zoom level of the map.
+
+    Returns:
+        folium.Map: Custom map object.
+    """
+    new_map = folium.Map(location=[latitude, longitude], zoom_start=zoom)
+    return new_map
+
+
+# You don't really want any of the stuff that is outside of a function/class
+# unless it is a standalone script (or, in this case, maybe a global variable).
 # Create a new custom map
-new_map = create_new_map()
+#new_map = create_new_map()
 
 # Display the map
-new_map
+#new_map
 
 
 #Function 2 - Draw Polygon
@@ -57,13 +75,13 @@ def add_draw_control(m):
     return m
 
 # Add existing map object from user-defined map
-m = new_map
+#m = new_map
 
 # Call the function to add the draw control to the map
-map_with_draw_control = add_draw_control(m)
+#map_with_draw_control = add_draw_control(m)
 
 # Display the map with the draw control
-map_with_draw_control
+#map_with_draw_control
 
 #Function 3 - Add Shapefile to Map
 def add_shapefile_to_map(m):
@@ -94,10 +112,37 @@ def add_shapefile_to_map(m):
     return m
 
 # Create a Folium map
-m = new_map
+#m = new_map
 
 # Call the function to add the shapefile to the map
-new_map = add_shapefile_to_map(m)
+#new_map = add_shapefile_to_map(m)
 
 # Display the map
-new_map
+#new_map
+
+def add_shapefile_to_map2(m, shapefile_path):
+    """
+    Allows the user to add a shapefile to the map to be used for further analysis.
+
+    Args:
+        shapefile_path (gpd): Path to a shapefile to be displayed on the map.
+        m (folium.Map): Map object with the shapefile will be added.
+        
+    Returns:
+        folium.Map: Previously created custom map object with the desired shapefile added.
+    """
+    
+    # Allow the user to enter the path to the shapefile
+    #shapefile_path = input("Enter the path to the shapefile: ")
+
+    # Read the shapefile into a GeoDataFrame
+    gdf = gpd.read_file(shapefile_path)
+
+    # Convert the GeoDataFrame to GeoJSON format
+    geojson_data = gdf.to_crs('EPSG:4326').to_json()
+
+    # Create a Folium GeoJson object and add it to the map
+    folium.GeoJson(geojson_data).add_to(m)
+
+    # Return the updated map
+    return m
